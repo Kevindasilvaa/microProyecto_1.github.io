@@ -3,7 +3,123 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>BINGO</title>
+    <link rel="stylesheet" href="./styles.css" />
   </head>
-  <body></body>
+  <body>
+    <section class="seccion-1">
+      <div class="seccion-1__izquierda">
+        <h1>Menu Principal</h1>
+        <div>
+          <label>
+            <div>Participante 1:</div>
+            <input
+              type="text"
+              placeholder="Ingrese un nombre"
+              id="input-participante 1"
+            />
+          </label>
+          <label>
+            <div>Participante 2:</div>
+            <input
+              type="text"
+              placeholder="Ingrese un nombre"
+              id="input-participante 2"
+            />
+          </label>
+          <label>
+            <div>Participante 3:</div>
+            <input
+              type="text"
+              placeholder="Ingrese un nombre"
+              id="input-participante 3"
+            />
+          </label>
+          <label>
+            <div>Participante 4:</div>
+            <input
+              type="text"
+              placeholder="Ingrese un nombre"
+              id="input-participante 4"
+            />
+          </label>
+          <div>
+            <div>Selecciona el tamaño del cartón</div>
+            <select id="tamanoCarton">
+              <option value="opcion1">3x3</option>
+              <option value="opcion2">4x4</option>
+              <option value="opcion3">5x5</option>
+            </select>
+          </div>
+          <div>
+            <button onclick="comenzarPartida()">Comenzar Partida</button>
+          </div>
+        </div>
+      </div>
+      <div class="seccion-1__derecha">
+        <h1>Juego</h1>
+        <div id="encabezado_juego">
+          <div id="contador">Turno actual: 0</div>
+          <button onclick="siguienteTurno()">Siguiente Turno</button>
+          <div id="numeroGenerado">Numero Generado: 0</div>
+        </div>
+        <div>
+          <nav id="mi-nav" display="none">
+            <ul>
+              <li id="participante_1">
+                <a href="#" onclick="mostrarDiv(1)">Participante 1</a>
+              </li>
+              <li id="participante_2">
+                <a href="#" onclick="mostrarDiv(2)">Participante 2</a>
+              </li>
+              <li id="participante_3">
+                <a href="#" onclick="mostrarDiv(3)">Participante 3</a>
+              </li>
+              <li id="participante_4">
+                <a href="#" onclick="mostrarDiv(4)">Participante 4</a>
+              </li>
+              <li id="historialParticipantes">
+                <a href="#" onclick="mostrarDiv(5)">Historial Participantes</a>
+              </li>
+            </ul>
+          </nav>
+          <div id="div1"></div>
+          <div id="div2"></div>
+          <div id="div3"></div>
+          <div id="div4"></div>
+          <div id="div5">
+            <ul id="lista_del_historico"></ul>
+          </div>
+        </div>
+        <div id="fin_partida" class="oculto" class="centrado">
+          <button
+            id="boton_finalizar_partida"
+            class="boton-personalizado"
+            onclick="finPartida()"
+          >
+            Finalizar Partida
+          </button>
+          <div id="contenido_fin_partida" class="oculto">
+            <ul id="lista"></ul>
+          </div>
+          <!-- Creamos una plantilla (template) que podemos clonar repetidas veces desde JavaScript
+                  para agregar entradas a la lista -->
+          <template id="template-lista">
+            <li style="border: 1px solid red; padding: 8px">
+              <div>Nombre: <span class="nombre"></span></div>
+              <div>Resultado: <span class="resultado"></span></div>
+            </li>
+          </template>
+          <template id="template-lista-historial">
+            <li style="border: 1px solid red; padding: 8px">
+              <div>Nombre: <span class="nombre"></span></div>
+              <div>Victorias Acumuladas: <span class="victorias"></span></div>
+            </li>
+          </template>
+        </div>
+      </div>
+    </section>
+  </body>
+  <!-- Vinculamos el archivo JavaScript -->
+  <script src="./main.js"></script>
 </html>

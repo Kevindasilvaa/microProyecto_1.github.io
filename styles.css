@@ -119,8 +119,8 @@ nav ul li:hover {
   gap: 4px;
   width: 310px;
   margin-top: 2%;
-  margin-left: 13%;
-  margin-bottom: 14%;
+  margin-left: 19%;
+  margin-bottom: 7%;
 }
 .board5{
   display: grid;
@@ -211,7 +211,6 @@ nav ul li:hover {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 4px;
     width: 310px;
-    /* margin: 120px auto; */
     margin-top: 2%;
     margin-left: 0%;
     margin-bottom: 4%;

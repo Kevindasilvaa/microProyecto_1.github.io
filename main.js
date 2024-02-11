@@ -200,6 +200,9 @@ function finPartida(){
   //ocultar el boton de finalzar
   var boton_finalizar_partida = document.getElementById("boton_finalizar_partida");
   boton_finalizar_partida.classList.add('oculto');
+  //ocultar el boton de siguiente turno
+  var boton_finalizar_partida = document.getElementById("boton_siguiente_turno");
+  boton_finalizar_partida.classList.add('oculto');
 
   //eliminar los elementos de los resultados pasados
   const ulLista = document.getElementById('lista');

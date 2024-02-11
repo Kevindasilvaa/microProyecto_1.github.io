@@ -11,38 +11,46 @@
       <div id="menu" class="seccion-1__izquierda">
         <h1>Menu Principal</h1>
         <div>
-          <label>
-            <div>Participante 1:</div>
-            <input
-              type="text"
-              placeholder="Ingrese un nombre"
-              id="input-participante 1"
-            />
-          </label>
-          <label>
-            <div>Participante 2:</div>
-            <input
-              type="text"
-              placeholder="Ingrese un nombre"
-              id="input-participante 2"
-            />
-          </label>
-          <label>
-            <div>Participante 3:</div>
-            <input
-              type="text"
-              placeholder="Ingrese un nombre"
-              id="input-participante 3"
-            />
-          </label>
-          <label>
-            <div>Participante 4:</div>
-            <input
-              type="text"
-              placeholder="Ingrese un nombre"
-              id="input-participante 4"
-            />
-          </label>
+          <div>
+            <label>
+              Participante 1:
+              <input
+                type="text"
+                placeholder="Ingrese un nombre"
+                id="input-participante 1"
+              />
+            </label>
+          </div>
+          <div>
+            <label>
+              Participante 2:
+              <input
+                type="text"
+                placeholder="Ingrese un nombre"
+                id="input-participante 2"
+              />
+            </label>
+          </div>
+          <div>
+            <label>
+              Participante 3:
+              <input
+                type="text"
+                placeholder="Ingrese un nombre"
+                id="input-participante 3"
+              />
+            </label>
+          </div>
+          <div>
+            <label>
+              Participante 4:
+              <input
+                type="text"
+                placeholder="Ingrese un nombre"
+                id="input-participante 4"
+              />
+            </label>
+          </div>
           <div>
             Selecciona el tamaño del cartón:
             <select id="tamanoCarton">
@@ -62,7 +70,6 @@
         <h1>Juego</h1>
         <div id="encabezado_juego">
           <div id="contador">Turno actual: 0</div>
-          <button onclick="siguienteTurno()">Siguiente Turno</button>
           <div id="numeroGenerado">Numero Generado: 0</div>
         </div>
         <div>
@@ -119,13 +126,24 @@
           </button>
         </div>
         <div id="fin_partida" class="oculto" class="centrado">
-          <button
-            id="boton_finalizar_partida"
-            class="boton-personalizado"
-            onclick="finPartida()"
-          >
-            Finalizar Partida
-          </button>
+          <div>
+            <button
+              id="boton_siguiente_turno"
+              onclick="siguienteTurno()"
+              class="boton-personalizado"
+            >
+              Siguiente Turno
+            </button>
+          </div>
+          <div>
+            <button
+              id="boton_finalizar_partida"
+              class="boton-personalizado"
+              onclick="finPartida()"
+            >
+              Finalizar Partida
+            </button>
+          </div>
           <div id="contenido_fin_partida" class="oculto">
             <ul id="lista"></ul>
           </div>

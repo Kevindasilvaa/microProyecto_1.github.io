@@ -108,6 +108,9 @@ function comenzarPartida(){
       //mostrar el boton de finalzar
       var boton_finalizar_partida = document.getElementById("boton_finalizar_partida");
       boton_finalizar_partida.classList.remove('oculto');
+      //mostrar el boton de siguiente turno
+      var boton_finalizar_partida = document.getElementById("boton_siguiente_turno");
+      boton_finalizar_partida.classList.remove('oculto');
 
       //asignamos los nombres a los participantes
       participantes[0].name = document.getElementById('input-participante 1').value;

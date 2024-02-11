@@ -33,22 +33,22 @@ function devolverGanador(){
   if(participantes[0].resultado > participantes[1].resultado && participantes[0].resultado > participantes[2].resultado && participantes[0].resultado > participantes[3].resultado){
     participantes[0].victoria = 1;
     //mostrar ganador
-    document.getElementById('ganador').innerHTML = "Ganador: " + participantes[0].name;
+    document.getElementById('ganador').innerHTML = "Ganador: " + participantes[0].name+" "+'<img src="./homero.gif" class ="gif">';
     return 0;
   }else if(participantes[1].resultado > participantes[0].resultado && participantes[1].resultado > participantes[2].resultado && participantes[1].resultado > participantes[3].resultado){
     participantes[1].victoria = 1;
-    document.getElementById('ganador').innerHTML = "Ganador: " + participantes[1].name;
+    document.getElementById('ganador').innerHTML = "Ganador: " + participantes[1].name+" " +'<img src="./homero.gif" class ="gif">';
     return 1;
   }else if(participantes[2].resultado > participantes[0].resultado && participantes[2].resultado > participantes[1].resultado && participantes[2].resultado > participantes[3].resultado){
     participantes[2].victoria = 1;
-    document.getElementById('ganador').innerHTML = "Ganador: " + participantes[2].name;
+    document.getElementById('ganador').innerHTML = "Ganador: " + participantes[2].name+" "+'<img src="./homero.gif" class ="gif">';
     return 2;
   }else if(participantes[3].resultado > participantes[0].resultado && participantes[3].resultado > participantes[2].resultado && participantes[3].resultado > participantes[1].resultado){
     participantes[3].victoria = 1;
-    document.getElementById('ganador').innerHTML = "Ganador: " + participantes[3].name;
+    document.getElementById('ganador').innerHTML = "Ganador: " + participantes[3].name+" "+'<img src="./homero.gif" class ="gif">';
     return 3;
   }else{
-    document.getElementById('ganador').innerHTML = "No hay Ganador";
+    document.getElementById('ganador').innerHTML = "No hay Ganador "+'<img src="./homero2.gif" class ="gif">';
     return 4; //no hubo ganador, fue un empate
   }
 }
@@ -107,9 +107,12 @@ function comenzarPartida(){
       navElement.classList.remove('oculto');
       //mostrar el boton de finalzar
       var boton_finalizar_partida = document.getElementById("boton_finalizar_partida");
+      boton_finalizar_partida.classList.add('boton-personalizado');
       boton_finalizar_partida.classList.remove('oculto');
+      
       //mostrar el boton de siguiente turno
       var boton_finalizar_partida = document.getElementById("boton_siguiente_turno");
+      boton_finalizar_partida.classList.add('boton-personalizado');
       boton_finalizar_partida.classList.remove('oculto');
 
       //asignamos los nombres a los participantes
@@ -203,9 +206,11 @@ function finPartida(){
   //ocultar el boton de finalzar
   var boton_finalizar_partida = document.getElementById("boton_finalizar_partida");
   boton_finalizar_partida.classList.add('oculto');
+  boton_finalizar_partida.classList.remove('boton-personalizado');
   //ocultar el boton de siguiente turno
   var boton_finalizar_partida = document.getElementById("boton_siguiente_turno");
   boton_finalizar_partida.classList.add('oculto');
+  boton_finalizar_partida.classList.remove('boton-personalizado');
 
   //eliminar los elementos de los resultados pasados
   const ulLista = document.getElementById('lista');

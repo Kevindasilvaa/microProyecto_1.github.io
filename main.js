@@ -32,17 +32,23 @@ participantes =[
 function devolverGanador(){
   if(participantes[0].resultado > participantes[1].resultado && participantes[0].resultado > participantes[2].resultado && participantes[0].resultado > participantes[3].resultado){
     participantes[0].victoria = 1;
+    //mostrar ganador
+    document.getElementById('ganador').innerHTML = "Ganador: " + participantes[0].name;
     return 0;
   }else if(participantes[1].resultado > participantes[0].resultado && participantes[1].resultado > participantes[2].resultado && participantes[1].resultado > participantes[3].resultado){
     participantes[1].victoria = 1;
+    document.getElementById('ganador').innerHTML = "Ganador: " + participantes[1].name;
     return 1;
   }else if(participantes[2].resultado > participantes[0].resultado && participantes[2].resultado > participantes[1].resultado && participantes[2].resultado > participantes[3].resultado){
     participantes[2].victoria = 1;
+    document.getElementById('ganador').innerHTML = "Ganador: " + participantes[2].name;
     return 2;
   }else if(participantes[3].resultado > participantes[0].resultado && participantes[3].resultado > participantes[2].resultado && participantes[3].resultado > participantes[1].resultado){
     participantes[3].victoria = 1;
+    document.getElementById('ganador').innerHTML = "Ganador: " + participantes[3].name;
     return 3;
   }else{
+    document.getElementById('ganador').innerHTML = "No hay Ganador";
     return 4; //no hubo ganador, fue un empate
   }
 }
@@ -58,64 +64,93 @@ function guardar_local_storage(){
     }
   } 
 }
+function mostrarMenu(){
+  //ocultamos el juego
+  var div = document.getElementById("juego");
+  div.classList.add('oculto');
+  div.classList.remove('seccion-1__derecha');
+  //borramos los nombres que hay en las casillas de los inputs
+  document.getElementById('input-participante 1').value = "";
+  document.getElementById('input-participante 2').value = "";
+  document.getElementById('input-participante 3').value = "";
+  document.getElementById('input-participante 4').value = "";
+  //mostramos el menu
+  var div = document.getElementById("menu");
+  div.classList.remove('oculto');
+}
 function comenzarPartida(){
-    numerosGenerados = new Set(); //volvemos a inicializar numeros generados para que se borren los anteriores
-    turnoActual = 0;
-    document.getElementById('contador').innerText = `Turno Actual: 0`;//reiniciamos turno actual en la pagina
-    document.getElementById('numeroGenerado').innerText = `Numero Generado: 0`;//reiniciamos numero generado en la pagina
-    //ocultar resultados
-    var div = document.getElementById("contenido_fin_partida");
-    div.classList.add('oculto');
-    //mostrar parte de arriba del nav
-    var encabezado_juego = document.getElementById("encabezado_juego");
-    encabezado_juego.classList.remove('oculto');
-    //mostrar el nav
-    var navElement = document.getElementById("mi-nav");
-    navElement.classList.remove('oculto');
-    //mostrar el boton de finalzar
-    var boton_finalizar_partida = document.getElementById("boton_finalizar_partida");
-    boton_finalizar_partida.classList.remove('oculto');
+  //verificamos que todos los input tengan nombre
+    if(document.getElementById('input-participante 1').value == "" || document.getElementById('input-participante 2').value == "" || document.getElementById('input-participante 3').value == "" || document.getElementById('input-participante 4').value == ""){
+      alert("Falta colocar el nombre de uno/s de los participantes");
+    }else{
+      //ocultamos el menu
+      var div = document.getElementById("menu");
+      div.classList.add('oculto');
+      //mostramos el juego
+      var div = document.getElementById("juego");
+      div.classList.remove('oculto');
+      div.classList.add('seccion-1__derecha');
 
-    //asignamos los nombres a los participantes
-    participantes[0].name = document.getElementById('input-participante 1').value;
-    participantes[1].name = document.getElementById('input-participante 2').value;
-    participantes[2].name = document.getElementById('input-participante 3').value;
-    participantes[3].name = document.getElementById('input-participante 4').value;
-    //asignamos el tamano carton a n
-    asignarTamanoCarton();
-    console.log(n);
-    //generamos las 4 matrices segun el numero n aleatorio
-    participantes[0].matriz = generarMatriz(n);
-    participantes[1].matriz = generarMatriz(n);
-    participantes[2].matriz = generarMatriz(n);
-    participantes[3].matriz = generarMatriz(n);
+      numerosGenerados = new Set(); //volvemos a inicializar numeros generados para que se borren los anteriores
+      turnoActual = 0;
+      document.getElementById('contador').innerText = `Turno Actual: 0`;//reiniciamos turno actual en la pagina
+      document.getElementById('numeroGenerado').innerText = `Numero Generado: 0`;//reiniciamos numero generado en la pagina
+      
+      //ocultar resultados
+      var div = document.getElementById("contenido_fin_partida");
+      div.classList.add('oculto');
+      //mostrar parte de arriba del nav
+      var encabezado_juego = document.getElementById("encabezado_juego");
+      encabezado_juego.classList.remove('oculto');
+      //mostrar el nav
+      var navElement = document.getElementById("mi-nav");
+      navElement.classList.remove('oculto');
+      //mostrar el boton de finalzar
+      var boton_finalizar_partida = document.getElementById("boton_finalizar_partida");
+      boton_finalizar_partida.classList.remove('oculto');
 
-    //reiniciamos los resultados de los nuevos participantes
-    participantes[0].resultado = 0;
-    participantes[1].resultado = 0;
-    participantes[2].resultado = 0;
-    participantes[3].resultado = 0;
+      //asignamos los nombres a los participantes
+      participantes[0].name = document.getElementById('input-participante 1').value;
+      participantes[1].name = document.getElementById('input-participante 2').value;
+      participantes[2].name = document.getElementById('input-participante 3').value;
+      participantes[3].name = document.getElementById('input-participante 4').value;
+      //asignamos el tamano carton a n
+      asignarTamanoCarton();
+      console.log(n);
+      //generamos las 4 matrices segun el numero n aleatorio
+      participantes[0].matriz = generarMatriz(n);
+      participantes[1].matriz = generarMatriz(n);
+      participantes[2].matriz = generarMatriz(n);
+      participantes[3].matriz = generarMatriz(n);
 
-    //reiniciamos las victorias de los nuevos participantes
-    participantes[0].victoria = 0;
-    participantes[1].victoria = 0;
-    participantes[2].victoria = 0;
-    participantes[3].victoria = 0;
+      //reiniciamos los resultados de los nuevos participantes
+      participantes[0].resultado = 0;
+      participantes[1].resultado = 0;
+      participantes[2].resultado = 0;
+      participantes[3].resultado = 0;
 
-    mostrarHistorialParticipantes();
+      //reiniciamos las victorias de los nuevos participantes
+      participantes[0].victoria = 0;
+      participantes[1].victoria = 0;
+      participantes[2].victoria = 0;
+      participantes[3].victoria = 0;
 
-    //dibujamos las matrices en la pagina
-    drawTokens1(n);
-    //mostramos el boton fin partida
-    var div_fin_partida = document.getElementById("fin_partida");
-    div_fin_partida.classList.remove('oculto');
+      mostrarHistorialParticipantes();
+
+      //dibujamos las matrices en la pagina
+      drawTokens1(n);
+      //mostramos el boton fin partida
+      var div_fin_partida = document.getElementById("fin_partida");
+      div_fin_partida.classList.remove('oculto');
+      
+      //coloca los nombres de los participantes en la barra del nav
+      var navElement = document.getElementById("mi-nav");
+      var enlaces = navElement.getElementsByTagName("a");
+      for (var i = 0; i < (enlaces.length - 1); i++) {
+        enlaces[i].textContent = participantes[i].name;
+      } 
+    }
     
-    //coloca los nombres de los participantes en la barra del nav
-    var navElement = document.getElementById("mi-nav");
-    var enlaces = navElement.getElementsByTagName("a");
-    for (var i = 0; i < (enlaces.length - 1); i++) {
-    enlaces[i].textContent = participantes[i].name;
-    } 
 }
 
 //asignara el tamano del carton correspondiente a la variable n, segun lo que el usuario escogio
@@ -155,6 +190,7 @@ function finPartida(){
     div.classList.remove('board'+n);
     div.classList.add('oculto');
   });
+
   //ocultar parte de arriba del nav
   var encabezado_juego = document.getElementById("encabezado_juego");
   encabezado_juego.classList.add('oculto');
@@ -168,6 +204,7 @@ function finPartida(){
   //eliminar los elementos de los resultados pasados
   const ulLista = document.getElementById('lista');
   document.getElementById('lista').innerHTML = '';
+  
   //actualizar resultados
   actualizarResultados();
   //preparar resultados

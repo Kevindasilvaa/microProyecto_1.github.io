@@ -8,7 +8,7 @@
   </head>
   <body>
     <section class="seccion-1">
-      <div class="seccion-1__izquierda">
+      <div id="menu" class="seccion-1__izquierda">
         <h1>Menu Principal</h1>
         <div>
           <label>
@@ -44,7 +44,7 @@
             />
           </label>
           <div>
-            <div>Selecciona el tamaño del cartón</div>
+            Selecciona el tamaño del cartón:
             <select id="tamanoCarton">
               <option value="opcion1">3x3</option>
               <option value="opcion2">4x4</option>
@@ -52,11 +52,13 @@
             </select>
           </div>
           <div>
-            <button onclick="comenzarPartida()">Comenzar Partida</button>
+            <button onclick="comenzarPartida()" class="boton-personalizado">
+              Comenzar Partida
+            </button>
           </div>
         </div>
       </div>
-      <div class="seccion-1__derecha">
+      <div id="juego" class="oculto" class="seccion-1__derecha">
         <h1>Juego</h1>
         <div id="encabezado_juego">
           <div id="contador">Turno actual: 0</div>
@@ -64,32 +66,57 @@
           <div id="numeroGenerado">Numero Generado: 0</div>
         </div>
         <div>
-          <nav id="mi-nav" display="none">
-            <ul>
-              <li id="participante_1">
-                <a href="#" onclick="mostrarDiv(1)">Participante 1</a>
-              </li>
-              <li id="participante_2">
-                <a href="#" onclick="mostrarDiv(2)">Participante 2</a>
-              </li>
-              <li id="participante_3">
-                <a href="#" onclick="mostrarDiv(3)">Participante 3</a>
-              </li>
-              <li id="participante_4">
-                <a href="#" onclick="mostrarDiv(4)">Participante 4</a>
-              </li>
-              <li id="historialParticipantes">
-                <a href="#" onclick="mostrarDiv(5)">Historial Participantes</a>
-              </li>
-            </ul>
-          </nav>
+          <div>
+            <nav id="mi-nav" display="none">
+              <ul>
+                <li id="participante_1">
+                  <a href="#" onclick="mostrarDiv(1)">Participante 1</a>
+                </li>
+                <li id="participante_2">
+                  <a href="#" onclick="mostrarDiv(2)">Participante 2</a>
+                </li>
+                <li id="participante_3">
+                  <a href="#" onclick="mostrarDiv(3)">Participante 3</a>
+                </li>
+                <li id="participante_4">
+                  <a href="#" onclick="mostrarDiv(4)">Participante 4</a>
+                </li>
+                <li id="historialParticipantes">
+                  <a href="#" onclick="mostrarDiv(5)"
+                    >Historial Participantes</a
+                  >
+                </li>
+              </ul>
+            </nav>
+          </div>
           <div id="div1"></div>
           <div id="div2"></div>
           <div id="div3"></div>
           <div id="div4"></div>
-          <div id="div5">
+          <div id="div5" class="divv5">
             <ul id="lista_del_historico"></ul>
           </div>
+        </div>
+        <div id="contenido_fin_partida" class="oculto">
+          <h2 id="ganador">Ganador:</h2>
+          <ul id="lista"></ul>
+          <button
+            id="boton_volver_jugar_partida"
+            class="boton-personalizado"
+            onclick="comenzarPartida()"
+          >
+            Volver a Jugar Partida
+          </button>
+          <div id="contenido_fin_partida" class="oculto">
+            <ul id="lista"></ul>
+          </div>
+          <button
+            id="boton_menu_principal"
+            class="boton-personalizado"
+            onclick="mostrarMenu()"
+          >
+            Menu Principal
+          </button>
         </div>
         <div id="fin_partida" class="oculto" class="centrado">
           <button

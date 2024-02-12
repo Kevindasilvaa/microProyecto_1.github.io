@@ -277,13 +277,13 @@ function actualizarResultados(){
     if(verificarMatrizCeros(participantes[i].matriz) == true){
       participantes[i].resultado += 5;
     }
-    //diagonal principal, 1pto
+    //diagonal principal, 3pto
     if(verificarDiagonalPrincipal(participantes[i].matriz) == true){
-      participantes[i].resultado += 1;
+      participantes[i].resultado += 3;
     }
-    //diagonal secundaria, 1pto
+    //diagonal secundaria, 3pto
     if(verificarDiagonalSecundaria(participantes[i].matriz) == true){
-      participantes[i].resultado += 1;
+      participantes[i].resultado += 3;
     }
   }
 }

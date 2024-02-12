@@ -129,6 +129,17 @@ function comenzarPartida(){
       participantes[2].matriz = generarMatriz(n);
       participantes[3].matriz = generarMatriz(n);
 
+      // participantes[0].matriz = [
+      //   [1,1,1],
+      //   [1,1,1],
+      //   [1,1,1]
+      // ]
+      // participantes[1].matriz = [
+      //   [2,2,2],
+      //   [2,2,2],
+      //   [2,2,2]
+      // ]
+
       //reiniciamos los resultados de los nuevos participantes
       participantes[0].resultado = 0;
       participantes[1].resultado = 0;
@@ -172,7 +183,7 @@ function asignarTamanoCarton(){
 }
 
 function siguienteTurno(){
-  if(verificarSiHayCartonLLeno == true){
+  if(verificarSiHayCartonLLeno() == true){
     alert("Uno de los participantes tiene carton lleno\nVerifica los tableros y presiona Finalizar Partida para continuar");
   }else if(turnoActual < 25){
     let numeroNuevo = Math.floor(Math.random() * 50) + 1;
